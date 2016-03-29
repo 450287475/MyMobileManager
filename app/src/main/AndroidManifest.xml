@@ -2,14 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mumuseng.mymobilemanager">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
     <application
         android:name="com.example.mumuseng.application.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/callmsgsafe"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -22,7 +27,27 @@
         </activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".SettingActivity" />
-        <activity android:name=".SaveActivity"></activity>
+        <activity android:name=".SaveActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".SaveSetting1Activity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".SaveSetting2Activity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".SaveSetting3Activity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".SaveSetting4Activity"
+            android:launchMode="singleTask"></activity>
+        <receiver android:name="com.example.mumuseng.receiver.MyBootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.mumuseng.receiver.MySmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.example.mumuseng.service.MyUpdateLocationService"></service>
     </application>
 
 </manifest>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:settingItem="http://schemas.android.com/apk/res-auto"
+    xmlns:save_setting_layout="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mumuseng.mymobilemanager.SaveSetting4Activity">
+    <TextView
+        style="@style/tv_title"
+        android:text="4.恭喜你,设置完成!"/>
+    <com.example.mumuseng.view.Setting_item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/si_saveset4_regist"
+        settingItem:itemtitle="点击开启防盗保护"
+        settingItem:onContent="防盗保护已开启"
+        settingItem:offContent="防盗保护还未开启"
+        ></com.example.mumuseng.view.Setting_item>
+    <com.example.mumuseng.view.SaveSettingLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        save_setting_layout:item="4"
+        ></com.example.mumuseng.view.SaveSettingLayout>
+
+</LinearLayout>

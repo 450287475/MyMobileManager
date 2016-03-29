@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:id="@+id/ll_savesettinglayout_mid"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_savesettinglayout_set1"
+            android:src="@android:drawable/presence_invisible"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_savesettinglayout_set2"
+            android:src="@android:drawable/presence_invisible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_savesettinglayout_set3"
+            android:src="@android:drawable/presence_invisible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_savesettinglayout_set4"
+            android:src="@android:drawable/presence_invisible" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setup1"
+        android:id="@+id/iv_savesettinglayout_icon"
+        android:layout_centerInParent="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上一步"
+        android:drawableLeft="@drawable/previous"
+        android:id="@+id/bt_savesettinglayout_prev"
+        android:paddingLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bt_savesettinglayout"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一步"
+        android:drawableRight="@drawable/next"
+        android:paddingRight="10dp"
+        android:id="@+id/bt_savesettinglayout_next"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bt_savesettinglayout"/>
+
+
+
+</RelativeLayout>
