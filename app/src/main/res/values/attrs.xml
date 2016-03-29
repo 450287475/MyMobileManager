@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Setting_item">
+        <attr name="itemtitle" format="string"></attr>
+        <attr name="onContent" format="string"></attr>
+        <attr name="offContent" format="string"></attr>
+        <attr name="sp_keyname" format="string"></attr>
+        <attr name="savesetting_item" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="SaveSettingLayout">
+        <attr name="item" format="integer"></attr>
+    </declare-styleable>
+</resources>

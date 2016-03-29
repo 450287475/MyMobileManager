@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mumuseng.mymobilemanager.HomeActivity">
+    <TextView
+       style="@style/tv_title"
+        android:text="功能列表"/>
+    <com.example.mumuseng.view.MarqueeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="亲爱的用户,我是你爹.就由爸爸来保护你手机的安全.父爱如山你懂吗?"
+        android:singleLine="true"
+        android:ellipsize="marquee" />
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:id="@+id/gv_home_item"></GridView>
+</LinearLayout>

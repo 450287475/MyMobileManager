@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settingItem="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mumuseng.mymobilemanager.SettingActivity">
+    <!---->
+    <TextView
+       style="@style/tv_title"
+        android:text="设置中心"/>
+    <com.example.mumuseng.view.Setting_item
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        settingItem:itemtitle="自动更新"
+        settingItem:onContent="自动更新已开启"
+        settingItem:offContent="自动更新已关闭"
+        settingItem:sp_keyname="auto_update"></com.example.mumuseng.view.Setting_item>
+    <com.example.mumuseng.view.Setting_item
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        settingItem:itemtitle="重力感应"
+        settingItem:onContent="重力感应已开启"
+        settingItem:offContent="重力感应已关闭"
+        settingItem:sp_keyname="gravity_sersor"></com.example.mumuseng.view.Setting_item>
+</LinearLayout>
