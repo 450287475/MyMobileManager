@@ -71,6 +71,7 @@ public class HomeActivity extends ActionBarActivity {
                     case SYSOPTIMIZE:
                         break;
                     case ATOOLS:
+                        startActivity(new Intent(HomeActivity.this, AdvanceToolActivity.class));
                         break;
                     case SETTINGS:
                         startActivity(new Intent(HomeActivity.this, SettingActivity.class));

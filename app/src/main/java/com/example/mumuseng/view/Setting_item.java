@@ -3,6 +3,8 @@ package com.example.mumuseng.view;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -15,7 +17,7 @@ import com.example.mumuseng.mymobilemanager.R;
 /**
  * Created by Mumuseng on 2016/3/25.
  */
-public class Setting_item extends RelativeLayout implements View.OnClickListener {
+public class Setting_item extends RelativeLayout  implements View.OnClickListener   {
 
     private TextView tv_setting_title;
     private TextView tv_setting_content;
@@ -37,6 +39,7 @@ public class Setting_item extends RelativeLayout implements View.OnClickListener
         super(context, attrs);
         init(attrs);
     }
+
 
     private void init(AttributeSet attrs) {
         View view = View.inflate(getContext(), R.layout.relativelayout_setting_item, null);

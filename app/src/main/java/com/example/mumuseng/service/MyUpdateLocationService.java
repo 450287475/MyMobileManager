@@ -23,12 +23,7 @@ public class MyUpdateLocationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
+        System.out.println(getClass().getName()+"onStartCommand");
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationManager.requestLocationUpdates("gps", 0, 0, new LocationListener() {
             @Override
@@ -37,7 +32,9 @@ public class MyUpdateLocationService extends Service {
                 double latitude = location.getLatitude();
                 MyApplication.spSave("longitude",longitude+"");
                 MyApplication.spSave("latitude",latitude+"");
+                System.out.println(longitude+":"+latitude);
             }
+
 
             @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -54,5 +51,13 @@ public class MyUpdateLocationService extends Service {
 
             }
         });
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onCreate() {
+        System.out.println(getClass().getName()+"onCreate");
+        super.onCreate();
+
     }
 }

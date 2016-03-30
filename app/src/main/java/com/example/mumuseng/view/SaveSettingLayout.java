@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -33,6 +35,7 @@ public class SaveSettingLayout extends RelativeLayout implements View.OnClickLis
     private Button bt_savesettinglayout_next;
     private int item;
 
+
     public SaveSettingLayout(Context context) {
         super(context);
     }
@@ -43,6 +46,9 @@ public class SaveSettingLayout extends RelativeLayout implements View.OnClickLis
     }
 
     private void init(AttributeSet attrs) {
+
+
+
         View view = View.inflate(getContext(), R.layout.rl_savesetting_buttom,null);
         iv_savesettinglayout_set1 = (ImageView) view.findViewById(R.id.iv_savesettinglayout_set1);
         iv_savesettinglayout_set2 = (ImageView) view.findViewById(R.id.iv_savesettinglayout_set2);
@@ -74,54 +80,61 @@ public class SaveSettingLayout extends RelativeLayout implements View.OnClickLis
                 bt_savesettinglayout_next.setText("设置完成");
                 break;
         }
-
-
         addView(view);
-
     }
+
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_savesettinglayout_next:
-                switch (item){
-                    case 1:
-                        getContext().startActivity(new Intent(getContext(), SaveSetting2Activity.class));
-                        break;
-                    case 2:
-                        String simSerialNumber = MyApplication.sp.getString("simSerialNumber", "");
-                        if(simSerialNumber.isEmpty()){
-                            Toast.makeText(getContext(), "请勾选绑定sim卡", Toast.LENGTH_SHORT).show();
-                        }else {
-                            getContext().startActivity(new Intent(getContext(), SaveSetting3Activity.class));
-                        }
-                        break;
-                    case 3:
-                        String saveNumber = SaveSetting3Activity.et_saveset3_contact.getText().toString();
-                        if("".equals(saveNumber)){
-                            Toast.makeText(getContext(), "请填写安全联系人", Toast.LENGTH_SHORT).show();
-                        }else {
-                            MyApplication.spSave("saveNumber",saveNumber);
-                            getContext().startActivity(new Intent(getContext(), SaveSetting4Activity.class));
-                        }
-                        break;
-                    case 4:
-                        getContext().startActivity(new Intent(getContext(), SaveActivity.class));
-                        break;
-                }
+                next();
                 break;
             case R.id.bt_savesettinglayout_prev:
-                switch (item){
-                    case 2:
-                        getContext().startActivity(new Intent(getContext(), SaveSetting1Activity.class));
-                        break;
-                    case 3:
-                        getContext().startActivity(new Intent(getContext(), SaveSetting2Activity.class));
-                        break;
-                    case 4:
-                        getContext().startActivity(new Intent(getContext(), SaveSetting3Activity.class));
-                        break;
+                prev();
+                break;
+        }
+    }
+
+    private void prev() {
+        switch (item){
+            case 2:
+                getContext().startActivity(new Intent(getContext(), SaveSetting1Activity.class));
+                break;
+            case 3:
+                getContext().startActivity(new Intent(getContext(), SaveSetting2Activity.class));
+                break;
+            case 4:
+                getContext().startActivity(new Intent(getContext(), SaveSetting3Activity.class));
+                break;
+        }
+    }
+
+    private void next() {
+        switch (item){
+            case 1:
+                getContext().startActivity(new Intent(getContext(), SaveSetting2Activity.class));
+                break;
+            case 2:
+                String simSerialNumber = MyApplication.sp.getString("simSerialNumber", "");
+                if(simSerialNumber.isEmpty()){
+                    Toast.makeText(getContext(), "请勾选绑定sim卡", Toast.LENGTH_SHORT).show();
+                }else {
+                    getContext().startActivity(new Intent(getContext(), SaveSetting3Activity.class));
                 }
+                break;
+            case 3:
+                String saveNumber = SaveSetting3Activity.et_saveset3_contact.getText().toString();
+                if("".equals(saveNumber)){
+                    Toast.makeText(getContext(), "请填写安全联系人", Toast.LENGTH_SHORT).show();
+                }else {
+                    MyApplication.spSave("saveNumber",saveNumber);
+                    getContext().startActivity(new Intent(getContext(), SaveSetting4Activity.class));
+                }
+                break;
+            case 4:
+                getContext().startActivity(new Intent(getContext(), SaveActivity.class));
                 break;
         }
     }

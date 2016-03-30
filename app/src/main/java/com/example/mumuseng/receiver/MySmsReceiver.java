@@ -1,5 +1,6 @@
 package com.example.mumuseng.receiver;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,12 +32,26 @@ public class MySmsReceiver extends BroadcastReceiver {
                         playAlarm(context);
                         break;
                     case "#*wipedata*#":
+                        wipedata(context);
                         break;
                     case "#*lockscreen*#":
+                        lockscreen(context);
+
                         break;
                 }
             }
         }
+    }
+
+    private void wipedata(Context context) {
+        DevicePolicyManager devicePolicyManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        devicePolicyManager.wipeData(0);
+    }
+
+    private void lockscreen(Context context) {
+        DevicePolicyManager devicePolicyManager =(DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        devicePolicyManager.lockNow();
+        devicePolicyManager.resetPassword("123",0);
     }
 
     private void getLocation(Context context) {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.example.mumuseng.application.MyApplication;
 import com.example.mumuseng.utils.DebugUtils;
 import com.example.mumuseng.utils.HttpUtils;
+import com.example.mumuseng.utils.IOUtils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -71,8 +73,30 @@ public class SplashActivity extends Activity {
             DebugUtils.sout("设置了不更新");
             goToHome();
         }
+        initDb();
 
     }
+
+    private void initDb() {
+        AssetManager assets = getAssets();
+        try {
+            InputStream open = assets.open("naddress.db");
+            File file = new File(getFilesDir(), "naddress.db");
+            if(file.exists()){
+                return;
+            }
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            IOUtils.fisWriteToFos(open, fileOutputStream);
+            fileOutputStream.close();
+            open.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {

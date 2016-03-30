@@ -18,6 +18,11 @@
         settingItem:onContent="防盗保护已开启"
         settingItem:offContent="防盗保护还未开启"
         ></com.example.mumuseng.view.Setting_item>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开启超级管理员模式"
+        android:id="@+id/bt_saveset4_openAdminManager"/>
     <com.example.mumuseng.view.SaveSettingLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

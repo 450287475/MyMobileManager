@@ -25,15 +25,16 @@ public class SaveSetting3Activity extends ActionBarActivity {
         bt_saveset3_chooseContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
+                //方法1
+              /*  Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
                 intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-                startActivityForResult(intent, 100);
+                startActivityForResult(intent, 100);*/
+                //方法2
+                Intent intent = new Intent(SaveSetting3Activity.this, GetContactsActivity.class);
+                startActivityForResult(intent, 200);
             }
         });
     }
-  /*  public static SaveSetting3Activity getSaveSetting3Activity(){
-        return mSaveSetting3Activity;
-    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -49,6 +50,11 @@ public class SaveSetting3Activity extends ActionBarActivity {
                     int columnIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = cursor.getString(columnIndex);
                     et_saveset3_contact.setText(number);
+                    break;
+                case 200:
+                    String number1 = data.getStringExtra("number");
+                    et_saveset3_contact.setText(number1);
+                    break;
             }
         }
     }
