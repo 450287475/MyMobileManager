@@ -80,6 +80,11 @@ public class MyNumberLocationService extends Service {
             params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                     | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                     | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+            float toastx = MyApplication.sp.getFloat("toastx", 200);
+            float toasty = MyApplication.sp.getFloat("toasty", 200);
+            params.x= (int) toastx;
+            params.y= (int) toasty;
+
             mWM.addView(view,params);
         }
     }

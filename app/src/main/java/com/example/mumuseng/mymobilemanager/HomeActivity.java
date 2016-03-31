@@ -61,6 +61,7 @@ public class HomeActivity extends ActionBarActivity {
                     case CALLMSGSAFE:
                         break;
                     case APP:
+                        startActivity(new Intent(HomeActivity.this, SoftManagerActivity.class));
                         break;
                     case TASKMANAGER:
                         break;

@@ -70,10 +70,13 @@
         </receiver>
 
         <service android:name="com.example.mumuseng.service.MyUpdateLocationService" />
-        <service android:name="com.example.mumuseng.service.MyNumberLocationService"></service>
+        <service android:name="com.example.mumuseng.service.MyNumberLocationService" />
+
         <activity android:name=".GetContactsActivity" />
         <activity android:name=".AdvanceToolActivity" />
-        <activity android:name=".QueryLocationActivity"></activity>
+        <activity android:name=".QueryLocationActivity" />
+        <activity android:name=".SetToastLocationActivity" />
+        <activity android:name=".SoftManagerActivity"></activity>
     </application>
 
 </manifest>
